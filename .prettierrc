@@ -1,0 +1,12 @@
+{
+  "importOrder": [
+    "^core/(.*)$",
+    "^assets/(.*)$",
+    "^(modules|components)/(.*)$",
+    "^../(.*)$",
+    "^./(.*)$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "tabWidth": 3
+}
