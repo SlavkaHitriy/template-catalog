@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { HomeURLPath, SearchResultsURLPath } from "core/helpers/routes";
 
-import { Home } from "modules/Home";
+import { Home } from "modules/Home/Home";
 import { SearchResults } from "modules/SearchResults";
 import { NoMatch404 } from "modules/status/NoMatch404";
 
