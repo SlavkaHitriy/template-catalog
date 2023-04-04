@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
+
+import "assets/styles/global.scss"
 import { store } from "core/store";
 
 const GlobalStyles = createGlobalStyle`
