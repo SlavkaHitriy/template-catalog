@@ -1,18 +1,19 @@
-.wrapper{
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    & img{
-        max-width: 100%;
-        display: block;
-        margin: 0 auto;
-        object-fit: cover;
-    }
+.wrapper {
+   width: 350px;
+   display: flex;
+   flex-direction: column;
+
+   & img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+   }
 }
 
-.describe{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 16px 0 8px 0;
+.describe {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 16px 0 8px 0;
 }

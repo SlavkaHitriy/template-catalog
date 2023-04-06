@@ -1,14 +1,10 @@
 import React from "react";
 
-import { Card } from "components/common/Card/Card";
-import styles from "modules/Home/index.module.scss";
-
-import { Header } from "components/Search/Header";
-import { SortBlock } from "components/settingsSort/SortBlock";
-import {Footer} from "components/common/Footer/Footer"
+import { Header } from "components/Home/Search/Header";
+import { Footer } from "components/common/Footer/Footer";
 import { Content } from "components/content/Content";
-
-
+import { SortBlock } from "components/settingsSort/SortBlock";
+import styles from "modules/Home/index.module.scss";
 
 export const Home = () => {
    return (
@@ -16,8 +12,8 @@ export const Home = () => {
          <div className={styles.wrapper}>
             <Header />
             <SortBlock />
-            <Content/>
-            <Footer/>
+            <Content />
+            <Footer />
          </div>
       </div>
    );
