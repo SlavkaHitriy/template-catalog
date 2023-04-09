@@ -1,32 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-interface Props {
-   fontSize: string;
-   lineHeight: string;
-   color: string;
-   margin: string;
-   children: React.ReactNode;
+interface TextProps {
+   fontSize?: string;
+   lineHeight?: string;
+   color?: string;
+   margin?: string;
    fontWeight?: string;
+   children: React.ReactNode;
 }
 
-export const Text = ({
-   fontSize,
-   lineHeight,
-   children,
-   color,
-   margin,
-   fontWeight,
-}: Props) => {
-   const StyledText = styled.p`
-      font-family: "Arial";
-      font-style: normal;
-      font-weight: ${fontWeight ? fontWeight : 700};
+const StyledText = styled.p<TextProps>`
+   ${({ fontWeight, fontSize, lineHeight, color, margin }) => `
+      font-weight: ${fontWeight};
       font-size: ${fontSize};
       line-height: ${lineHeight};
       color: ${color};
       margin: ${margin};
-   `;
+   `}
+`;
 
-   return <StyledText>{children}</StyledText>;
+export const Text = ({ children, ...props }: TextProps) => {
+   return <StyledText {...props}>{children}</StyledText>;
 };

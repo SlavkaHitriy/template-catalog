@@ -1,12 +1,13 @@
 import React from "react";
 
 import { Card } from "components/common/Card/Card";
-import styles from "components/content/index.module.scss";
+
+import styles from "./index.module.scss";
 
 export const Content = () => {
    return (
-      <div className={styles.wrapper}>
-         <div className={styles.container}>
+      <div className={"container"}>
+         <div className={styles.cards}>
             <Card />
             <Card />
             <Card />

@@ -1,0 +1,15 @@
+@import "assets/styles/includes/vars";
+
+.header {
+   position: absolute;
+   top: 30px;
+   left: 0;
+   width: 100%;
+   z-index: 10;
+}
+
+.headerLink {
+   font-size: 32px;
+   color: $secondary;
+   font-weight: 700;
+}
