@@ -3,26 +3,48 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import {
+   DefaultTheme,
+   ThemeProvider,
+   createGlobalStyle,
+} from "styled-components";
 
-
-import "assets/styles/global.scss"
 import { store } from "core/store";
 
-const GlobalStyles = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
+import "assets/styles/global.scss";
 
-const theme = {
+const theme: DefaultTheme = {
    colors: {
-      primary: "#fff",
-      secondary: "#345356",
+      primary: "#3F3F3F",
+      secondary: "#E34564",
+      gray: "#828282",
    },
 };
+
+const GlobalStyles = createGlobalStyle`
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+   }
+  
+   body {
+      color: ${(props) => props.theme.colors.primary};
+      line-height: 1.3;
+      font-weight: 400;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff;
+   }
+  
+   a {
+      text-decoration: none;
+   }
+   
+   input, button {
+     border: none;
+     outline: none;
+   }
+`;
 
 const root = ReactDOM.createRoot(
    document.getElementById("root") as HTMLElement
