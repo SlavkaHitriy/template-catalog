@@ -12,6 +12,7 @@ import {
 import { store } from "core/store";
 
 import "assets/styles/global.scss";
+import {ErrorBounder} from "./ErrorBounder";
 
 const theme: DefaultTheme = {
    colors: {
@@ -51,13 +52,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
    <React.StrictMode>
-      <Provider store={store}>
-         <BrowserRouter>
-            <ThemeProvider theme={theme}>
-               <GlobalStyles />
-               <App />
-            </ThemeProvider>
-         </BrowserRouter>
-      </Provider>
+      <ErrorBounder>
+         <Provider store={store}>
+            <BrowserRouter>
+               <ThemeProvider theme={theme}>
+                  <GlobalStyles />
+                  <App />
+               </ThemeProvider>
+            </BrowserRouter>
+         </Provider>
+      </ErrorBounder>
    </React.StrictMode>
 );

@@ -8,13 +8,13 @@ interface State {
   hasError: boolean;
 }
 
-class ErrorBounder extends Component<Props, State> {
+export class ErrorBounder extends Component<Props, State> {
   public state: State = {
     hasError: false
   };
 
   public static getDerivedStateFromError(_: Error): State {
-    
+
     return { hasError: true };
   }
 
@@ -30,5 +30,3 @@ class ErrorBounder extends Component<Props, State> {
     return this.props.children;
   }
 }
-
-export default ErrorBounder;
