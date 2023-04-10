@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import moviesReducer from "./slices/moviesSlice";
+import { moviesApi } from "../api";
 
 export const store = configureStore({
-    reducer: {
-        movies: moviesReducer,
-    },
+   reducer: {
+      // movies: moviesReducer,
+      [moviesApi.reducerPath]: moviesApi.reducer,
+   },
+   middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(moviesApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
