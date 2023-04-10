@@ -19,12 +19,7 @@ export const Search = () => {
       <div className={styles.wrapper}>
          <img src={background} alt="background" />
          <div className="container">
-            <Text
-               fontSize="40px"
-               color="#FFF"
-               margin="0px 0 32px 0"
-               fontWeight="700"
-            >
+            <Text fontSize="40px" color="#FFF" mb="32px" fontWeight="700">
                Find your movie
             </Text>
             <div className={styles.searchContainer}>
@@ -37,12 +32,7 @@ export const Search = () => {
             </div>
             <div className={styles.settingsSearch}>
                <div className={styles.buttonSearchBy}>
-                  <Text
-                     fontSize="24px"
-                     color="#FFF"
-                     margin="0px 32px 0 0"
-                     fontWeight="400"
-                  >
+                  <Text fontSize="24px" color="#FFF" mr="32px" fontWeight="400">
                      Search by
                   </Text>
                   <ActiveButton

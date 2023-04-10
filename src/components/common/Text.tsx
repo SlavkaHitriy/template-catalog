@@ -5,21 +5,44 @@ interface TextProps {
    fontSize?: string;
    lineHeight?: string;
    color?: string;
-   margin?: string;
    fontWeight?: string;
+   m?: string;
+   mt?: string;
+   mr?: string;
+   mb?: string;
+   ml?: string;
+   p?: string;
+   pt?: string;
+   pr?: string;
+   pb?: string;
+   pl?: string;
    children: React.ReactNode;
+   className?: string;
 }
 
 const StyledText = styled.p<TextProps>`
-   ${({ fontWeight, fontSize, lineHeight, color, margin }) => `
-      font-weight: ${fontWeight};
-      font-size: ${fontSize};
-      line-height: ${lineHeight};
-      color: ${color};
-      margin: ${margin};
+   ${(props) => `
+      font-weight: ${props.fontWeight};
+      font-size: ${props.fontSize};
+      line-height: ${props.lineHeight};
+      color: ${props.color};
+      margin: ${props.m};
+      margin-top: ${props.mt};
+      margin-right: ${props.mr};
+      margin-bottom: ${props.mb};
+      margin-left: ${props.ml};
+      padding: ${props.p};
+      padding-top: ${props.pt};
+      padding-right: ${props.pr};
+      padding-bottom: ${props.pb};
+      padding-left: ${props.pl};
    `}
 `;
 
-export const Text = ({ children, ...props }: TextProps) => {
-   return <StyledText {...props}>{children}</StyledText>;
+export const Text = ({ children, className, ...props }: TextProps) => {
+   return (
+      <StyledText className={className} {...props}>
+         {children}
+      </StyledText>
+   );
 };

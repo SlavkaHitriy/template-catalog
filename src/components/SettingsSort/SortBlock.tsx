@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 
 import { ActiveButtonsForSort } from "components/common/ActiveButtonsForSort";
 
@@ -6,9 +6,15 @@ import { Text } from "../common/Text";
 
 import styles from "./index.module.scss";
 
-export const SortBlock = () => {
-   const [activeSort, setActiveSort] = useState<string>("date");
+interface SortBlockProps {
+   activeSort: string;
+   setActiveSort: (sort: string) => void;
+}
 
+export const SortBlock: FC<SortBlockProps> = ({
+   activeSort,
+   setActiveSort,
+}) => {
    const handleClick = (sort: string) => {
       setActiveSort(sort);
    };
