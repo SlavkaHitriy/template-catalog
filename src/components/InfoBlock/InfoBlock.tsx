@@ -15,10 +15,10 @@ export const InfoBlock = () => {
             <div className={styles.generalInfo}>
                <img src={poster} alt="background" />
                <div className={styles.infoText}>
-                  <Text fontSize="40px" color="#fff" margin="0px 0 8px 0">
+                  <Text fontSize="40px" color="#fff" mb="8px">
                      Insomnia
                   </Text>
-                  <Text fontSize="20px" color="#E0E0E0" margin="0px 0 16px 0">
+                  <Text fontSize="20px" color="#E0E0E0" mb="16px">
                      Drama Movies
                   </Text>
                   <div className={styles.infoYearTime}>
@@ -26,7 +26,7 @@ export const InfoBlock = () => {
                         fontSize="24px"
                         lineHeight="28px"
                         color="#ffffff"
-                        margin="0px 41px 0px 0"
+                        mr="41px"
                      >
                         2002
                      </Text>
@@ -34,7 +34,7 @@ export const InfoBlock = () => {
                         fontSize="24px"
                         lineHeight="28px"
                         color="#ffffff"
-                        margin="0px 0 0px 0"
+                        m="0"
                      >
                         154 min
                      </Text>
