@@ -2,16 +2,27 @@
    background-color: #f1f1f1;
 }
 
-.container {
-   max-width: 1110px;
-   margin: 0 auto;
-   padding: 0 20px;
+.sortInner {
    display: flex;
    justify-content: space-between;
    align-items: center;
+
+   @media (max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
+      padding-top: 15px;
+   }
 }
 
 .sortBy {
    display: flex;
    align-items: center;
+}
+
+.sortByText {
+   font-size: 24px;
+
+   @media (max-width: 768px) {
+      font-size: 18px;
+   }
 }

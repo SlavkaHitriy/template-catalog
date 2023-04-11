@@ -1,25 +1,37 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
+import { useNavigate } from "react-router";
 
 import background from "assets/images/bg.png";
 
-import { ActiveButton } from "components/common/ActiveButton";
 import { Button } from "components/common/Button";
 import { Text } from "components/common/Text";
+
+import { SearchResultsURLPath } from "../../core/helpers/routes";
 
 import styles from "./index.module.scss";
 
 export const Search = () => {
-   const [activeSearch, setActiveSearch] = useState<string>("title");
+   const navigate = useNavigate();
+   const [searchValue, setSearchValue] = useState<string>("");
 
-   const handleClick = (search: string) => {
-      setActiveSearch(search);
+   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+
+      if (searchValue) {
+         navigate(SearchResultsURLPath.getUrl(searchValue));
+      }
    };
 
    return (
       <div className={styles.wrapper}>
          <img src={background} alt="background" />
-         <div className="container">
-            <Text fontSize="40px" color="#FFF" mb="32px" fontWeight="700">
+         <form className="container" onSubmit={handleSubmit}>
+            <Text
+               className={styles.searchTitle}
+               color="#FFF"
+               mb="32px"
+               fontWeight="700"
+            >
                Find your movie
             </Text>
             <div className={styles.searchContainer}>
@@ -27,30 +39,15 @@ export const Search = () => {
                   className={styles.searchInput}
                   type="text"
                   placeholder="Search..."
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
                />
-               <span className={styles.searchIcon} />
+               <button type={"submit"} className={styles.searchIcon} />
             </div>
             <div className={styles.settingsSearch}>
-               <div className={styles.buttonSearchBy}>
-                  <Text fontSize="24px" color="#FFF" mr="32px" fontWeight="400">
-                     Search by
-                  </Text>
-                  <ActiveButton
-                     onClick={() => handleClick("title")}
-                     active={activeSearch === "title"}
-                  >
-                     Title
-                  </ActiveButton>
-                  <ActiveButton
-                     onClick={() => handleClick("genre")}
-                     active={activeSearch === "genre"}
-                  >
-                     Genre
-                  </ActiveButton>
-               </div>
                <Button>Search</Button>
             </div>
-         </div>
+         </form>
       </div>
    );
 };

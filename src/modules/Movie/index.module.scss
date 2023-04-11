@@ -1,0 +1,16 @@
+.wrapper {
+   display: flex;
+   align-items: center;
+   padding: 25px 0;
+   background-color: #F1F1F1;
+   width: 100%;
+}
+
+.movieInfo {
+   display: flex;
+   align-items: center;
+
+   @media (max-width: 500px) {
+      justify-content: center;
+   }
+}

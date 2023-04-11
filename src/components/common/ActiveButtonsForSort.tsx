@@ -15,8 +15,13 @@ const StyledActiveButtonsForSort = styled.button<ActiveButtonsForSortProps>`
    padding: 25px 0 25px 0;
    background-color: unset;
    border-bottom: ${({ active }) => (active ? "4px solid #E34564" : "none")};
-   margin: 0 0 0 40px;
+   margin-left: 40px;
    cursor: pointer;
+
+   @media (max-width: 768px) {
+      font-size: 18px;
+      margin-left: 20px;
+   }
 `;
 
 export const ActiveButtonsForSort = ({

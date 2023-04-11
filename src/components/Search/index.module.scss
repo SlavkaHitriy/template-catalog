@@ -1,6 +1,6 @@
 .wrapper {
    position: relative;
-   padding: 142px 0 142px 0;
+   padding: 140px 0;
 
    img {
       position: absolute;
@@ -12,6 +12,10 @@
       object-fit: cover;
       object-position: top;
    }
+
+   @media (max-width: 500px) {
+      padding: 120px 0 50px;
+   }
 }
 
 .searchContainer {
@@ -22,7 +26,7 @@
    width: 100%;
    background: #000000;
    height: 76px;
-   padding: 24px 20px 24px 33px;
+   padding: 24px 80px 24px 33px;
    font-weight: 400;
    font-size: 24px;
    line-height: 28px;
@@ -30,6 +34,10 @@
    border-radius: 1px;
    border-bottom: 2px solid #e34564;
    margin-bottom: 32px;
+
+   @media (max-width: 500px) {
+      font-size: 20px;
+   }
 }
 
 .searchIcon {
@@ -40,15 +48,26 @@
    height: 40px;
    background-image: url("../../assets/images/icons/enter.svg");
    cursor: pointer;
+   background-color: unset;
 }
 
 .settingsSearch {
    display: flex;
-   justify-content: space-between;
+   justify-content: flex-end;
    align-items: center;
 }
 
 .buttonSearchBy {
    display: flex;
    align-items: center;
+}
+
+.searchTitle {
+   font-size: 40px;
+
+   @media (max-width: 500px) {
+      font-size: 36px;
+      text-align: center;
+      display: block;
+   }
 }

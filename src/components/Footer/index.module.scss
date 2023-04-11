@@ -2,4 +2,8 @@
    background: #3f3f3f;
    width: 100%;
    padding: 24px 0 24px 0;
+
+   @media (max-width: 500px) {
+      text-align: center;
+   }
 }

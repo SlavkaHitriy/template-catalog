@@ -1,28 +1,90 @@
+@import "assets/styles/includes/vars";
+
 .wrapper {
    position: relative;
    padding: 144px 0 82px 0;
 }
 
 .background {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center center;
+}
+
+.movieBG {
    position: absolute;
    width: 100%;
    height: 100%;
    top: 0;
    left: 0;
    z-index: -1;
-   object-fit: cover;
-   object-position: top;
+   background-color: $white;
+   filter: brightness(.3);
 }
 
 .generalInfo {
    display: flex;
 
    img {
-      margin: 0 123px 0 0;
+      margin-right: 120px;
+      max-width: 350px;
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+
+      @media (max-width: 1024px) {
+         margin-right: 50px;
+      }
+
+      @media (max-width: 768px) {
+         margin-right: 0;
+         margin-bottom: 50px;
+      }
+   }
+
+   @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
    }
 }
 
 .infoYearTime {
    display: flex;
-   margin: 0 0 40px 0;
+   margin-bottom: 40px;
+
+   @media (max-width: 500px) {
+      justify-content: center;
+   }
+}
+
+.infoText {
+   @media (max-width: 500px) {
+      text-align: center;
+   }
+}
+
+.infoTitle {
+   font-size: 40px;
+
+   @media (max-width: 500px) {
+      font-size: 28px;
+   }
+}
+
+.infoGenres {
+   font-size: 20px;
+
+   @media (max-width: 500px) {
+      font-size: 16px;
+   }
+}
+
+
+.infoOverview {
+   font-size: 24px;
+
+   @media (max-width: 500px) {
+      font-size: 18px;
+   }
 }

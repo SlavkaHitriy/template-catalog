@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Genre } from "../../../core/api/dto/genre";
 import { Movie } from "../../../core/api/dto/movies";
+import { MovieURLPath } from "../../../core/helpers/routes";
 import { strToEllipsis } from "../../../core/helpers/strToEllipsis";
 import { Image } from "../Image";
 import { Text } from "../Text";
@@ -24,18 +25,17 @@ export const Card: FC<CardProps> = ({
 }) => {
    return (
       <div className={styles.wrapper}>
-         <Link to={`/${id}`} className={styles.movieImgWrapper}>
+         <Link to={MovieURLPath.getUrl(id)} className={styles.movieImgWrapper}>
             <Image
                className={styles.movieImg}
                filePath={poster_path}
                alt="poster"
             />
          </Link>
-         <div className={styles.describe}>
-            <Link to={`/${id}`}>
+         <div className={styles.movieInfo}>
+            <Link to={MovieURLPath.getUrl(id)}>
                <Text
                   className={styles.movieTitle}
-                  fontSize="20px"
                   color="#3F3F3F"
                   fontWeight="700"
                >
@@ -52,7 +52,7 @@ export const Card: FC<CardProps> = ({
                {vote_average.toFixed(1)}
             </Text>
          </div>
-         <div className={styles.describe}>
+         <div className={styles.movieBottom}>
             <Text fontSize="14px" color="#828282" fontWeight="400">
                {genre_ids
                   .map(
@@ -69,7 +69,7 @@ export const Card: FC<CardProps> = ({
                pt={"2px"}
                ml={"10px"}
             >
-               {new Date(release_date).getFullYear()}
+               {release_date && new Date(release_date).getFullYear()}
             </Text>
          </div>
       </div>

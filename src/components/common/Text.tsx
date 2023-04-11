@@ -5,7 +5,7 @@ interface TextProps {
    fontSize?: string;
    lineHeight?: string;
    color?: string;
-   fontWeight?: string;
+   fontWeight?: string | number;
    m?: string;
    mt?: string;
    mr?: string;
@@ -20,8 +20,9 @@ interface TextProps {
    className?: string;
 }
 
-const StyledText = styled.p<TextProps>`
+const StyledText = styled.div<TextProps>`
    ${(props) => `
+      display: inline-block;
       font-weight: ${props.fontWeight};
       font-size: ${props.fontSize};
       line-height: ${props.lineHeight};

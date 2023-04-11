@@ -2,7 +2,7 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 
 import { axiosBaseQuery } from "./axios-base-query";
 import { Genres } from "./dto/genre";
-import { Movies } from "./dto/movies";
+import { MovieDetails, Movies } from "./dto/movies";
 
 export const moviesApi = createApi({
    reducerPath: "moviesApi",
@@ -28,7 +28,41 @@ export const moviesApi = createApi({
             },
          }),
       }),
+      getSearchedMovies: builder.query<Movies, string>({
+         query: (query: string) => ({
+            url: "/search/movie",
+            method: "get",
+            params: {
+               api_key: process.env.REACT_APP_API_KEY,
+               query,
+            },
+         }),
+      }),
+      getMovieDetails: builder.query<MovieDetails, number>({
+         query: (id: number) => ({
+            url: `/movie/${id}`,
+            method: "get",
+            params: {
+               api_key: process.env.REACT_APP_API_KEY,
+            },
+         }),
+      }),
+      getSimilarMovies: builder.query<Movies, number>({
+         query: (id: number) => ({
+            url: `/movie/${id}/similar`,
+            method: "get",
+            params: {
+               api_key: process.env.REACT_APP_API_KEY,
+            },
+         }),
+      }),
    }),
 });
 
-export const { useGetPopularMoviesQuery, useGetGenresQuery } = moviesApi;
+export const {
+   useGetPopularMoviesQuery,
+   useGetGenresQuery,
+   useGetSearchedMoviesQuery,
+   useGetMovieDetailsQuery,
+   useGetSimilarMoviesQuery,
+} = moviesApi;

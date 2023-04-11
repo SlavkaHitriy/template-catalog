@@ -1,12 +1,18 @@
-.wrapper {
-   display: flex;
-   align-items: center;
-   padding: 25px 0;
-   background-color: #F1F1F1;
-   width: 100%;
+.searchTop {
+   padding: 200px 0 50px;
+   background-image: url(../../assets/images/bg.png);
+
+   @media (max-width: 500px) {
+      padding: 100px 0 50px;
+   }
 }
 
-.searchInfo {
-   display: flex;
-   align-items: center;
+.searchText {
+   font-size: 36px;
+
+   @media (max-width: 500px) {
+      font-size: 28px;
+      text-align: center;
+      display: block;
+   }
 }

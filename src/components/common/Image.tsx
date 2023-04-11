@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 
-import poster from "assets/images/1.png";
-
 interface ImageProps {
    filePath: string;
    className?: string;
@@ -9,11 +7,11 @@ interface ImageProps {
 }
 
 export const Image: FC<ImageProps> = ({ filePath, className, alt }) => {
-   return (
+   return filePath ? (
       <img
-         src={`${process.env.REACT_APP_API_URL_IMAGE}${filePath}` || poster}
+         src={`${process.env.REACT_APP_API_URL_IMAGE}${filePath}`}
          className={className}
          alt={alt}
       />
-   );
+   ) : null;
 };

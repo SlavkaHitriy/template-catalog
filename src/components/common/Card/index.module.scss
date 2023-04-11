@@ -16,6 +16,15 @@
    height: 500px;
    width: 100%;
    cursor: pointer;
+   background-color: rgba($gray, .3);
+
+   @media (max-width: 500px) {
+      height: 300px;
+   }
+
+   @media (max-width: 400px) {
+      height: 500px;
+   }
 }
 
 .movieImg {
@@ -24,26 +33,33 @@
    display: block;
    object-fit: cover;
    transform-origin: center center;
-   background-color: rgba($gray, .3);
    transition: all 1s;
 }
 
-.describe {
+.movieInfo {
    display: flex;
    justify-content: space-between;
    margin: 15px 0 10px;
+}
 
-   &:last-child {
-      margin-top: 0;
-      margin-bottom: 0;
-   }
+.movieBottom {
+   margin-top: auto;
+   margin-bottom: 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .movieTitle {
    transition: all .15s;
    cursor: pointer;
+   font-size: 20px;
 
    &:hover {
       color: $secondary;
+   }
+
+   @media (max-width: 500px) {
+      font-size: 16px;
    }
 }

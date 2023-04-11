@@ -1,25 +1,48 @@
-import React from "react";
-
-import poster from "assets/images/8.png";
-import background from "assets/images/bg.png";
+import React, { FC } from "react";
 
 import { Text } from "components/common/Text";
 
+import { MovieDetails } from "../../core/api/dto/movies";
+import { Image } from "../common/Image";
+
 import styles from "./index.module.scss";
 
-export const InfoBlock = () => {
+interface InfoBlockProps extends MovieDetails {}
+
+export const InfoBlock: FC<InfoBlockProps> = ({
+   backdrop_path,
+   poster_path,
+   title,
+   genres,
+   release_date,
+   runtime,
+   overview,
+}) => {
    return (
       <div className={styles.wrapper}>
-         <img src={background} alt="background" className={styles.background} />
+         <div className={styles.movieBG}>
+            <Image
+               filePath={backdrop_path}
+               alt={"background"}
+               className={styles.background}
+            />
+         </div>
          <div className="container">
             <div className={styles.generalInfo}>
-               <img src={poster} alt="background" />
+               <Image filePath={poster_path} alt={"poster"} />
                <div className={styles.infoText}>
-                  <Text fontSize="40px" color="#fff" mb="8px">
-                     Insomnia
-                  </Text>
-                  <Text fontSize="20px" color="#E0E0E0" mb="16px">
-                     Drama Movies
+                  <div>
+                     <Text className={styles.infoTitle} color="#fff">
+                        {title}
+                     </Text>
+                  </div>
+                  <Text
+                     className={styles.infoGenres}
+                     color="#E0E0E0"
+                     mt={"8px"}
+                     mb="16px"
+                  >
+                     {genres.map((genre) => genre.name).join(", ")}
                   </Text>
                   <div className={styles.infoYearTime}>
                      <Text
@@ -28,7 +51,7 @@ export const InfoBlock = () => {
                         color="#ffffff"
                         mr="41px"
                      >
-                        2002
+                        {new Date(release_date).getFullYear()}
                      </Text>
                      <Text
                         fontSize="24px"
@@ -36,14 +59,15 @@ export const InfoBlock = () => {
                         color="#ffffff"
                         m="0"
                      >
-                        154 min
+                        {runtime} min
                      </Text>
                   </div>
-                  <Text fontSize="24px" lineHeight="150%" color="#E0E0E0">
-                     A police detective goes to an Alaskan town to investigate
-                     the killing of a teenaged girl. The main suspect plays a
-                     psychological game of cat and mouse with him, jeopardising
-                     his own mental stability.
+                  <Text
+                     className={styles.infoOverview}
+                     lineHeight="150%"
+                     color="#E0E0E0"
+                  >
+                     {overview}
                   </Text>
                </div>
             </div>

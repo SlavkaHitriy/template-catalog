@@ -15,6 +15,11 @@ const StyledButton = styled.button`
    padding: 13px 54px 13px 54px;
    margin: 0 0 0 0;
    cursor: pointer;
+
+   @media (max-width: 500px) {
+      font-size: 20px;
+      width: 100%;
+   }
 `;
 
 export const Button = ({ children }: Props) => {

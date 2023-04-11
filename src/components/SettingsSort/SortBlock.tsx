@@ -21,26 +21,32 @@ export const SortBlock: FC<SortBlockProps> = ({
 
    return (
       <div className={styles.wrapper}>
-         <div className={styles.container}>
-            <Text fontSize="20px" color="#828282" fontWeight="700">
-               7 movies found
-            </Text>
-            <div className={styles.sortBy}>
-               <Text fontSize="24px" color="#828282" fontWeight="400">
-                  Sort by
+         <div className={"container"}>
+            <div className={styles.sortInner}>
+               <Text fontSize="20px" color="#828282" fontWeight="700">
+                  7 movies found
                </Text>
-               <ActiveButtonsForSort
-                  onClick={() => handleClick("date")}
-                  active={activeSort === "date"}
-               >
-                  Release Date
-               </ActiveButtonsForSort>
-               <ActiveButtonsForSort
-                  onClick={() => handleClick("rate")}
-                  active={activeSort === "rate"}
-               >
-                  Rating
-               </ActiveButtonsForSort>
+               <div className={styles.sortBy}>
+                  <Text
+                     className={styles.sortByText}
+                     color="#828282"
+                     fontWeight="400"
+                  >
+                     Sort by
+                  </Text>
+                  <ActiveButtonsForSort
+                     onClick={() => handleClick("date")}
+                     active={activeSort === "date"}
+                  >
+                     Release Date
+                  </ActiveButtonsForSort>
+                  <ActiveButtonsForSort
+                     onClick={() => handleClick("rate")}
+                     active={activeSort === "rate"}
+                  >
+                     Rating
+                  </ActiveButtonsForSort>
+               </div>
             </div>
          </div>
       </div>

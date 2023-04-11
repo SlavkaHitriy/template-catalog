@@ -2,10 +2,11 @@ import React, { useState } from "react";
 
 import { Card } from "components/common/Card/Card";
 
-import { useGetGenresQuery, useGetPopularMoviesQuery } from "../../core/api";
-import { SortBlock } from "../SettingsSort/SortBlock";
+import { useGetGenresQuery, useGetPopularMoviesQuery } from "../core/api";
 
-import styles from "./index.module.scss";
+import { SortBlock } from "./SettingsSort/SortBlock";
+import { Loader } from "./common/Loader";
+import { MoviesWrapper } from "./common/MoviesWrapper";
 
 export const Content = () => {
    const [activeSort, setActiveSort] = useState<string>("date");
@@ -41,10 +42,10 @@ export const Content = () => {
          <SortBlock activeSort={activeSort} setActiveSort={setActiveSort} />
          <div className={"container"}>
             {isLoading ? (
-               <div>Loading...</div>
+               <Loader />
             ) : (
                !!sortedData && (
-                  <div className={styles.cards}>
+                  <MoviesWrapper>
                      {sortedData.map((movie) => (
                         <Card
                            key={movie.id}
@@ -52,7 +53,7 @@ export const Content = () => {
                            {...movie}
                         />
                      ))}
-                  </div>
+                  </MoviesWrapper>
                )
             )}
          </div>
