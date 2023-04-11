@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Card } from "components/common/Card/Card";
 
 import { useGetGenresQuery, useGetPopularMoviesQuery } from "../../core/api";
-import { SortBlock } from "../SettingsSort/SortBlock";
+import { SortBlock } from "../settingsSort/SortBlock";
 
 import styles from "./index.module.scss";
 
